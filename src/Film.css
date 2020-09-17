@@ -1,0 +1,13 @@
+.filmCard {
+  border: 1px solid black;
+  color: red;
+  height: 215px;
+  width: 450px;
+  margin-bottom: 30px;
+}
+
+.filmList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
