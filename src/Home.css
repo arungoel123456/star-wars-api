@@ -1,0 +1,13 @@
+.home-page-container {
+  height: 100vh;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+.home-page-image {
+  border: solid;
+  height: 200px;
+  width: 200px;
+  margin-top: auto;
+  margin-bottom: auto;
+}

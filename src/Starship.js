@@ -58,30 +58,44 @@ export default class Starship extends React.Component {
             <div> Loading... </div>
           ) : (
             <div>
-              <ul>
+              <h1 className="list-heading">Starships List</h1>
+              <ul className="filmList">
                 {this.state.allStarships.map((starship, id) => (
                   <li
                     key={id}
                     onClick={() => {
                       this.props.history.push({
                         pathname: "starshipDetail",
-                        state: { starship },
+                        state: { starship: starship.url },
                       });
                     }}
                   >
-                    {starship.name}
+                    <div className="filmCard">
+                      <h4>Name: {starship.name} </h4>
+                      <h4>Model : {starship.model} </h4>
+                      <h4>Manufacturer : {starship.manufacturer} </h4>
+                      <h4>Length : {starship.length} </h4>
+                    </div>
                   </li>
                 ))}
               </ul>
             </div>
           )}
-          <button onClick={this.nextPage} disabled={this.state.nextUrl == null}>
-            Next
-          </button>
-          <br />
-          <button onClick={this.prevPage} disabled={this.state.prevUrl == null}>
-            Prev
-          </button>
+
+          <div className="bottom-buttons">
+            <button
+              onClick={this.prevPage}
+              disabled={this.state.prevUrl == null}
+            >
+              Prev
+            </button>
+            <button
+              onClick={this.nextPage}
+              disabled={this.state.nextUrl == null}
+            >
+              Next
+            </button>
+          </div>
         </div>
       </>
     );

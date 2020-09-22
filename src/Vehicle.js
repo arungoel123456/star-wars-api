@@ -58,30 +58,44 @@ export default class Vehicle extends React.Component {
             <div> Loading... </div>
           ) : (
             <div>
-              <ul>
+              <h1 className="list-heading">Vehicles List</h1>
+              <ul className="filmList">
                 {this.state.allVehicles.map((vehicle, id) => (
                   <li
                     key={id}
                     onClick={() => {
                       this.props.history.push({
                         pathname: "vehicleDetail",
-                        state: { vehicle },
+                        state: { vehicle: vehicle.url },
                       });
                     }}
                   >
-                    {vehicle.name}
+                    <div className="filmCard">
+                      <h4>Name: {vehicle.name} </h4>
+                      <h4>Model : {vehicle.model} </h4>
+                      <h4>Manufacturer : {vehicle.manufacturer} </h4>
+                      <h4>Cargo Capacity : {vehicle.cargo_capacity} </h4>
+                    </div>
                   </li>
                 ))}
               </ul>
             </div>
           )}
-          <button onClick={this.nextPage} disabled={this.state.nextUrl == null}>
-            Next
-          </button>
-          <br />
-          <button onClick={this.prevPage} disabled={this.state.prevUrl == null}>
-            Prev
-          </button>
+
+          <div className="bottom-buttons">
+            <button
+              onClick={this.prevPage}
+              disabled={this.state.prevUrl == null}
+            >
+              Prev
+            </button>
+            <button
+              onClick={this.nextPage}
+              disabled={this.state.nextUrl == null}
+            >
+              Next
+            </button>
+          </div>
         </div>
       </>
     );

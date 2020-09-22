@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "@atlaskit/button";
 
 export default class Planet extends React.Component {
   constructor(props) {
@@ -59,27 +60,43 @@ export default class Planet extends React.Component {
             <div> Loading... </div>
           ) : (
             <div>
-              <ul>
+              <h1 className="list-heading">Planets List</h1>
+              <ul className="filmList">
                 {this.state.allPlanets.map((planet, id) => (
                   <li
                     key={id}
                     onClick={() => {
-                      this.props.history.push(`planetDetail/${id + 1}`);
+                      this.props.history.push({
+                        pathname: "planetDetail",
+                        state: { planet: planet.url },
+                      });
                     }}
                   >
-                    {planet.name}
+                    <div className="filmCard">
+                      <h3>Name: {planet.name} </h3>
+                      <h3>Rotation Period: {planet.rotation_period} </h3>
+                      <h3>Climate: {planet.climate} </h3>
+                      <h3>Terrain: {planet.terrain} </h3>
+                    </div>
                   </li>
                 ))}
               </ul>
             </div>
           )}
-          <button onClick={this.nextPage} disabled={this.state.nextUrl == null}>
-            Next
-          </button>
-          <br />
-          <button onClick={this.prevPage} disabled={this.state.prevUrl == null}>
-            Prev
-          </button>
+          <div className="bottom-buttons">
+            <button
+              onClick={this.prevPage}
+              disabled={this.state.prevUrl == null}
+            >
+              Prev
+            </button>
+            <button
+              onClick={this.nextPage}
+              disabled={this.state.nextUrl == null}
+            >
+              Next
+            </button>
+          </div>
         </div>
       </>
     );

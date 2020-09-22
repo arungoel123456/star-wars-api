@@ -24,12 +24,16 @@ export default class Film extends React.Component {
             <div> Loading </div>
           ) : (
             <div>
+              <h1 className="list-heading">Films List</h1>
               <ul className="filmList">
                 {this.state.allFilms.map((currFilm, id) => (
                   <li
                     key={id}
                     onClick={() => {
-                      this.props.history.push(`filmDetail/${id + 1}`);
+                      this.props.history.push({
+                        pathname: "filmDetail",
+                        state: { film: currFilm.url },
+                      });
                     }}
                   >
                     <div className="filmCard">
@@ -43,12 +47,6 @@ export default class Film extends React.Component {
               </ul>
             </div>
           )}
-        </div>
-
-        <div className="c-content">
-          <h3>This is our Film Detail Page.</h3>
-
-          {/* <Route path="/film/filmDetail/:id" component={FilmDetail} /> */}
         </div>
       </>
     );
