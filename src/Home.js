@@ -1,10 +1,10 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./Home.css";
-import film from "./film.jpg";
-import planet from "./planet.png";
-import starship from "./starship.png";
-import vehicle from "./vehicle.png";
+import film from "./assets/film.jpg";
+import planet from "./assets/planet.png";
+import starship from "./assets/starship.png";
+import vehicle from "./assets/vehicle.png";
 
 export default class Home extends React.Component {
   render() {

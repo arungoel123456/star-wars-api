@@ -1,5 +1,6 @@
 import React from "react";
 import "./Film.css";
+import ls from "local-storage";
 
 export default class Film extends React.Component {
   constructor(props) {
@@ -10,13 +11,21 @@ export default class Film extends React.Component {
     };
   }
   async componentDidMount() {
-    const url = "https://swapi.dev/api/films/";
-    const response = await fetch(url);
-    const data = await response.json();
-    this.setState({ allFilms: data.results, loading: false });
+    if (ls.get("film-list") === null) {
+      const url = "https://swapi.dev/api/films/";
+      const response = await fetch(url);
+      const data = await response.json();
+      this.setState({ allFilms: data.results, loading: false });
+      ls.set("film-list", data.results);
+      console.log("from Api");
+    } else {
+      this.setState({ allFilms: ls.get("film-list"), loading: false });
+      console.log("From Local Storage");
+    }
   }
 
   render() {
+    console.log(this.props);
     return (
       <>
         <div>

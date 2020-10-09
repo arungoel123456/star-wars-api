@@ -25,7 +25,7 @@ export default class CharacterShortDetail extends React.Component {
           {this.state.loading ? (
             <div>
               {" "}
-              <Button appearance="primary" isLoading>
+              <Button appearance="subtle" isLoading>
                 Loading button
               </Button>
             </div>

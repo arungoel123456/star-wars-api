@@ -1,7 +1,7 @@
 import React from "react";
 import { Power2, TimelineLite } from "gsap";
 import "./OpenCrawl.css";
-import starWarsLogo from "./starWarsLogo.png";
+import starWarsLogo from "./assets/starWarsLogo.png";
 
 export default class OpenCrawl extends React.Component {
   constructor(props) {

@@ -19,15 +19,13 @@ class FilmDetail extends React.Component {
 
   async componentDidMount() {
     const url = this.props.location.state.film;
-    console.log(url);
     const response = await fetch(url);
     const data = await response.json();
-    console.log(data);
     this.setState({ loading: false, filmDetail: data });
   }
 
   render() {
-    console.log("Printing Props");
+    console.log("Printing Props in film Detail ");
     console.log(this.props);
     return (
       <div>

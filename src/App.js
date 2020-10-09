@@ -18,6 +18,9 @@ import {
   NavLink,
   Switch,
 } from "react-router-dom";
+// import Appreciation from "./Appreciation";
+import Species from "./Species";
+import SpecieFullDetail from "./SpecieFullDetail";
 
 class App extends React.Component {
   render() {
@@ -45,6 +48,9 @@ class App extends React.Component {
               <NavLink to="/vehicle" activeClassName="active">
                 Vehicle
               </NavLink>
+              <NavLink to="/species" activeClassName="active">
+                Species
+              </NavLink>
             </div>
           </div>
           <hr />
@@ -66,6 +72,8 @@ class App extends React.Component {
                   component={CharacterFullDetail}
                 />
                 <Route path="/openCrawl" component={OpenCrawl} />
+                <Route path="/species" component={Species} />
+                <Route path="/specieFullDetail" component={SpecieFullDetail} />
 
                 {/* <Route component={Notfound} /> */}
               </Switch>
